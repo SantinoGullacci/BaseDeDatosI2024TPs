@@ -26,9 +26,9 @@ Paso 3: Diseño en Tercera Forma Normal (3FN)
 
 1. Tabla Taller
 
-   codigoSucursal (Clave foranea que referencia a Sucursal)
-   cosdigoFosa (Clave foranea que referencia a Fosa)
-   Clave primaria compuesta: (codigoSucursal, codigoFosa)
+codigoSucursal (Clave foranea que referencia a Sucursal)
+cosdigoFosa (Clave foranea que referencia a Fosa)
+Clave primaria compuesta: (codigoSucursal, codigoFosa)
 
 3. Tabla Sucursal
 
