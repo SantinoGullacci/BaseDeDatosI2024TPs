@@ -25,3 +25,44 @@ Paso 2: Determinar las Claves Candidatas
 Paso 3: Diseño en Tercera Forma Normal (3FN)
 
 ![image](https://github.com/user-attachments/assets/ab8eecdc-aa6f-47f0-97c1-46dff3340b5d)
+
+(Subido en formato imagen para que se vea con el formato ordenado de las tablas, de todas formas dejamos en formato de texto debajo: )
+
+1. Tabla Taller
+
+    codigoSucursal (Clave foranea que referencia a Sucursal)
+    cosdigoFosa (Clave foranea que referencia a Fosa)
+    Clave primaria compuesta: (codigoSucursal, codigoFosa)
+
+2. Tabla Sucursal
+
+    codigoSucursal (Clave primaria)
+    domicilioSucursal 
+    telefonoSucursal
+
+3. Tabla Fosa
+
+    codigoSucursal (Clave foranea que referencia a Sucursal)
+    codigoFosa (Clave primaria)
+    largoFosa
+    anchoFosa
+
+4. Tabla Auto
+
+    dniCliente (Clave foranea que referenia a Cliente)
+    patenteAuto (Clave primaria)
+    marcaAuto
+    modeloAuto
+    
+
+5. Tabla Cliente
+
+    dniCliente (Clave primaria)
+    nombreCliente
+    celularCliente
+
+6. Tabla Mecanico
+
+    dniMecanico (Clave primaria)
+    nombreMecanico
+    emailMecanico
