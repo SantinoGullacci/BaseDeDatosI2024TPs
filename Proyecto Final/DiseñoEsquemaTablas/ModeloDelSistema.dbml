@@ -1,0 +1,51 @@
+
+Enum "Cuotas_estado_pago_enum" {
+  "PENDIENTE"
+  "PAGADO"
+}
+
+Table "Usuarios" {
+  "dni" CHAR(20) [pk]
+  "nombre" VARCHAR(50) [not null]
+  "apellido" VARCHAR(50) [not null]
+  "email" VARCHAR(100) [unique, not null]
+  "telefono" VARCHAR(15) [not null]
+  "fecha_registro" DATE [not null]
+}
+
+Table "Libros" {
+  "lid" INT [pk, increment]
+  "titulo" VARCHAR(200) [not null]
+  "autor" VARCHAR(100) [not null]
+  "genero" VARCHAR(50)
+  "editorial" VARCHAR(100)
+  "anio_publicacion" YEAR
+
+  Indexes {
+    titulo [name: "idx_titulo"]
+    autor [name: "idx_autor"]
+  }
+}
+
+Table "Prestamos" {
+  "id" INT [pk, increment]
+  "dni_usuario" CHAR(20) [not null]
+  "lid" INT [not null]
+  "fecha_prestamo" DATE [not null]
+  "fecha_devolucion" DATE
+}
+
+Table "Cuotas" {
+  "id" INT [pk, increment]
+  "dni_usuario" CHAR(20) [not null]
+  "monto" DECIMAL(10,2) [not null]
+  "mes" INT [not null]
+  "anio" INT [not null]
+  "estado_pago" Cuotas_estado_pago_enum [default: 'PENDIENTE']
+}
+
+Ref:"Usuarios"."dni" < "Prestamos"."dni_usuario" [delete: cascade]
+
+Ref:"Libros"."lid" < "Prestamos"."lid" [delete: cascade]
+
+Ref:"Usuarios"."dni" < "Cuotas"."dni_usuario" [delete: cascade]
